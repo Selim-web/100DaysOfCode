@@ -1,0 +1,18 @@
+Day 1 : Front End Development Libraries - Bootstrap
+ Use Responsive Design with Bootstrap Fluid Containers
+ Make Images Mobile Responsive
+ Center Text with Bootstrap
+ Create a Bootstrap Button
+ Create a Block Element Bootstrap Button
+ Taste the Bootstrap Button Color Rainbow
+ Call out Optional Actions with btn-info
+ Warn Your Users of a Dangerous Action with btn-danger
+ Use the Bootstrap Grid to Put Elements Side By Side
+ Ditch Custom CSS for Bootstrap
+ Use a span to Target Inline Elements
+ Create a Custom Heading
+ Add Font Awesome Icons to our Buttons
+ Add Font Awesome Icons to all of our Buttons
+ Responsively Style Radio Buttons
+ Responsively Style Checkboxes
+ Style Text Inputs as Form Controls
