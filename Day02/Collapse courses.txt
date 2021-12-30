@@ -1,0 +1,26 @@
+Day 2 :
+
+Front End Development Libraries - Bootstrap
+
+Line up Form Elements Responsively with Bootstrap
+Create a Bootstrap Headline
+House our page within a Bootstrap container-fluid div
+Create a Bootstrap Row
+Split Your Bootstrap Row
+Create Bootstrap Wells
+Add Elements within Your Bootstrap Wells
+Apply the Default Bootstrap Button Style
+Create a Class to Target with jQuery Selectors
+Add id Attributes to Bootstrap Elements
+Label Bootstrap Wells
+Give Each Element a Unique id
+Label Bootstrap Buttons
+Use Comments to Clarify Code
+
+Front End Development Libraries - jQuery
+
+Learn How Script Tags and Document Ready Work
+Target HTML Elements with Selectors Using jQuery
+Target Elements by Class Using jQuery
+Target Elements by id Using jQuery
+Delete Your jQuery Functions
