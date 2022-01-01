@@ -1,6 +1,6 @@
 HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
+Day04/target/
+!Day04/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -34,4 +34,4 @@ build/
 
 
 ### Application.properties ####
-src/main/resources/application.properties
+Day04/src/main/resources/application.properties
