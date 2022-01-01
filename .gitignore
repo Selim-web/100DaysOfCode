@@ -1,6 +1,6 @@
 HELP.md
-Day04/target/
-!Day04/.mvn/wrapper/maven-wrapper.jar
+/target/
+!**/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
