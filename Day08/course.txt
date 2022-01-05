@@ -1,0 +1,4 @@
+Day 08 : 
+
+Continuity of training to creating a home dashboard with connected devices. Use of Bootstrap and Css rule.
+Setting up an equipment store. The idea will be to use jQuery to create an animation around the opening and closing of the blind by changing the height of the image.

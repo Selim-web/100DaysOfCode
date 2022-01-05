@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/Day05/style.default.css" id="theme-stylesheet">
+    <style>
+        .cercle {
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(0, 0, 0, 1);
+            border-radius: 50%;
+
+        }
+
+        .button {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: #796aee;
+            border-color: #796aee;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="header z-index-50">
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <nav class="side-navbar z-index-40">
+            </nav>
+            <div class="content-inner w-100">
+                <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                    <div class="container-fluid px-0">
+                        <h2 class="mb-0 p-1">Dashboard</h2>
+                    </div>
+                </header>
+                <section class="pb-0">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="card card-body" style="border-radius: 10px;">
+                                    <div class="header-heating"
+                                        style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                                        <h4>Air conditioning</h4>
+                                        <button type="button">ON</button>
+                                    </div>
+                                    <div class="main-heating" style="display: flex; justify-content: space-between;">
+                                        <div style="display: flex;">
+                                            <button class="button">-</button>
+                                            <p style="padding-left: 10px;">05°C</p>
+                                        </div>
+                                        <div
+                                            style="border: 1px solid black; border-radius: 50%; height: 150px; width: 150px;">
+                                            Temperature</div>
+                                        <div style="display: flex;">
+                                            <p style="padding-right: 10px;">25°C</p>
+                                            <button class="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="row">
+                                    <div class="card card-body" style="border-radius: 10px;">
+                                        <h4>test</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card card-body" style="border-radius: 10px;">
+                                        <h4>test2</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="card card-body" style="border-radius: 10px;">
+                                    <div class="header-heating"
+                                        style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                                        <h4>Store</h4>
+                                    </div>
+                                    <div class="main-heating" style="display: flex; justify-content: space-between;">
+                                        <div style="display: flex;">
+                                            <button class="button">-</button>
+                                        </div>
+                                        <div style="border: 1px solid black; height: 150px; width: 150px;">
+                                            <img src="store.png" alt="" style="width: 150px; height: 150px;">
+                                        </div>
+                                        <div style="display: flex;">
+                                            <button class="button">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="row">
+                                    <div class="card card-body" style="border-radius: 10px;">
+                                        <h4>test</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card card-body" style="border-radius: 10px;">
+                                        <h4>test2</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
