@@ -1,0 +1,6 @@
+Day 09 : 
+
+Continuity of training to creating a home dashboard with connected devices. Use of Bootstrap and Css rule.
+Setting up an equipment store. The idea will be to use jQuery to create an animation around the opening and closing of the blind by changing the height of the image.
+I used z-index to position the images on top of each other. A blind on a window frame.
+Use of javascript to play with the height of the blind with a - and + button.
