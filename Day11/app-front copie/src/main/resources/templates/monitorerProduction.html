@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" />
+ <link rel="stylesheet" th:href="@{/css/all.css}" />
+ <link rel="stylesheet" th:href="@{/css/main.css}" />
+ <title>Production</title>
+</head>
+<body>
+  <div th:replace="Menu :: header">...</div><!--ajout du menu-->
+  <!--le petit formulaire-->
+  <div class = "bg-primary">
+    <form method="get" th:action="@{/listDesRooms}">
+      <label for="id">Saisir un id</label>
+      <input type="text" name="id">
+      <input type="submit" value="envoi">
+    </form>
+  </div>
+  <!--fin du formulaire-->
+  <div class="container-fluid bg-primary">
+    <div class="conso">
+      <span >Consommation globale</span>
+      <span class = "dropdown-content" th:text="${habitation}"></span>
+    </div>
+    <div class="container">
+    </div>
+  </div>
+</body>
+</html>

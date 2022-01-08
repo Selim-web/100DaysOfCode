@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chauffage</title>
+</head>
+<body>
+<p>Ceci est la page de configuration du chauffage X</p>
+<p>configuration :</p>
+<div>
+    <p>etat : Manuel </p></div>
+    <input type="button" value="passser en automatique">
+
+<p>informations environnement :</br>
+    temperature extérieure : </br>
+    temperature intérieure : </br>
+</p>
+
+<form method="post" action="HomeInterface.html">
+    <label for="thermostat">le thermostat est a :</label>
+    <input type="submit" value="envoyer" >
+</form>
+</body>
+<script>
+    var btn = document.querySelector('input');
+    var txt = document.querySelector('div p');
+
+    btn.addEventListener('click',updateBtn);
+
+    function updateBtn(){
+        if (btn.value == 'passer en automatique'){
+            btn.value = 'passer en manuel';
+            txt.textContent = "etat : Automatique";
+        } else {
+            btn.value='passer en automatique';
+            txt.textContent = "etat : Manuel";
+        }
+    }
+</script>
+</html>

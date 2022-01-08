@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <!--<title>Controler les équipements d'un DWP</title>-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- Choices CSS-->
+    <link rel="stylesheet" href="vendor/choices.js/public/assets/styles/choices.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="./css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" href="/../css/main.css"/>
+    <link rel="stylesheet" href="/css/modal.css"/>
+
+    <!-- JavaScript files-->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+</head>
+<body>
+    <div class="page">
+        <!-- Main Navbar de l'application à mettre ici-->
+        <header class="header z-index-50">
+            <div th:replace="Menu :: header">...</div>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <div th:replace="EquipmentDwp/fragments :: nav_menu"></div>
+            <div class="content-inner w-100">
+                <!-- Page Header-->
+                <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                    <div class="container-fluid px-0">
+                        <h2 class="mb-0 p-1">Home Page<i class="fad fa-heat"></i></h2>
+                    </div>
+                </header>
+                <section class="pt-3 pb-1">
+                    <div class="container-fluid">
+                        <div class="row justify-content-md-center">
+                            <!-- Light  -->
+                            <div class="col-8">
+                                <div class="card mb-0">
+                                    <div class="card-body">
+                                        <div class="row justify-content-md-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                                        </svg></div>
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Etat</th>
+                                                    <th>Intensité Electrique</th>
+                                                    <th>Mode</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td th:if="${lightDwp.etat}==true">Allumée</td>
+                                                    <td th:if="${lightDwp.etat}==false">Eteint</td>
+                                                    <td><span th:text="${lightDwp.intensity}"/>%</td>
+                                                    <td><span th:text="${lightDwp.mode}"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <span ></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt-3 pb-1">
+                    <div class="container-fluid">
+                        <div class="row justify-content-md-center">
+                            <!-- Heating  -->
+                            <div class="col-8">
+                                <div class="card mb-0">
+                                    <div class="card-body">
+                                        <div class="row justify-content-md-center mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                                                <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z"/>
+                                                <path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z"/>
+                                            </svg></div>
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Etat</th>
+                                                    <th>Température de consigne</th>
+                                                    <th>Mode</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td th:if="${heatingDwp.etat}==true">Allumé</td>
+                                                    <td th:if="${heatingDwp.etat}==false">Eteint</td>
+                                                    <td><span th:text="${heatingDwp.temperature}"/>°C</td>
+                                                    <td><span th:text="${heatingDwp.mode}"/></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="Modal-Test">
+            <div class="Modal-t">
+                    <h2>Êtes-vous sur de vouloir activer le mode écnomique ?</h2>
+            </div>
+        </div>
+    </div>
+
+<div th:replace="EquipmentDwp/fragments :: function_ajax"/>
+    <script src="js/modal.js"></script>
+<script>
+    var modalBtn = document.querySelector('.Modal-Test-btn')
+    var modalBg = document.querySelector('.Modal-Test')
+
+    modalBtn.addEventListener('click', function() {
+        modalBg.classList.add('bg-active');
+    });
+
+
+    function test(){
+        var request = new XMLHttpRequest();
+        const url = 'http://localhost:9000/chauffage/chauffage?room_id=1';
+        request.open('GET', url);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.onload = function () {
+            var data = JSON.parse(this.responseText);
+            console.log(data)
+        }
+        request.send();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="EquipmentDwp/fragments :: html_head"/>
+<body>
+<div class="page">
+    <!-- Main Navbar de l'application à mettre ici-->
+    <header class="header z-index-50">
+        <div th:replace="Menu :: header">...</div>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <div th:replace="EquipmentDwp/fragments :: nav_menu"/>
+        <div class="content-inner w-100">
+            <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                <div class="container-fluid px-0">
+                    <h2 class="mb-0 p-1">Configuration de la lumière</h2>
+                </div>
+            </header>
+            <section class="">
+                <div class="container-fluid">
+                    <div class="row justify-content-md-center">
+                        <!-- Work Amount  -->
+                        <div class="col-8">
+                            <div class="card mb-0">
+                                <div class="card-body">
+                                    <h3 class="mb-1">Réglage de l'intensité lumineuse électrique</h3>
+                                    <input type="range" class="form-range" min="0" max="100" step="25" id="customRange3" value="50" oninput="this.nextElementSibling.value=this.value">
+                                    <output></output><span>%</span>
+                                    <span th:text="${lightDwp.intensity}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="EquipmentDwp/fragments :: function_ajax"/>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" th:href="@{/css/Hajar_Css/smart_grid_css.css}" />
+</head>
+<body th:fragment="map">
+	<center>
+		<H1>Bilan energitique de la ville</H1>
+	</center>
+	<div class="danger" th:if="${ville_bilan<0}">
+		<p>
+			<strong>Deficite!</strong> La ville a besoin d'energie (<b
+				th:text="${ville_bilan}"></b>KW)! Dernier rafraichissement le <b
+				th:text="${last_refreshed}"></b>
+		</p>
+	</div>
+
+	<div class="success" th:if="${ville_bilan>0}">
+		<p>
+			<strong>Surplus!</strong> La ville a produit <b
+				th:text="${ville_bilan}"></b>KW de plus! Dernier rafraichissement le
+			<b th:text="${last_refreshed}"></b>
+		</p>
+	</div>
+
+	<div class="warning" th:if="${ville_bilan==0}">
+		<p>
+			<strong>Attention!</strong>La ville consomme exactement ce qu'elle
+			produit! Dernier rafraichissement le <b th:text="${last_refreshed}"></b>
+		</p>
+	</div>
+	<center>
+		<input type="button" onclick="refresh();" value="rafraichir" />
+	</center>
+
+	<center>
+		<H1>Echo Quartiers de la ville et leurs bilan energitique(en KW)</H1>
+	</center>
+
+	<div class="wrapper1">
+		<div class="eco_district" th:each="ed: ${eco_dist.entrySet()}">
+			<div
+				th:if="${ed.getValue().keySet().toArray()[0]-ed.getValue().values().toArray()[0] >0}">
+				<p style="margin-top: -50px; color: #04AA6D;">
+					<b>echo quartier <span th:text="${ed.getKey()}"></span></b>
+				</p>
+				<table style="margin-top: -20px; margin-left: -10px;">
+					<tr style="width: 550px;">
+						<td>Produit(+) : <b
+							th:text="${ed.getValue().keySet().toArray()[0]}"></b></td>
+					</tr>
+					<tr style="width: 550px;">
+						<td>Consomme(-) : <b
+							th:text="${ed.getValue().values().toArray()[0]}"></b></td>
+					</tr>
+				</table>
+			</div>
+			<div
+				th:if="${ed.getValue().keySet().toArray()[0]-ed.getValue().values().toArray()[0]<0}">
+				<p style="margin-top: -50px; color: #CD5C5C;">
+					<b>echo quartier <span th:text="${ed.getKey()}"></span></b>
+				</p>
+				<table style="margin-top: -20px; margin-left: -10px;">
+					<tr style="width: 550px;">
+						<td>Produit(+) : <b
+							th:text="${ed.getValue().keySet().toArray()[0]}"></b></td>
+					</tr>
+					<tr style="width: 550px;">
+						<td>Consomme(-) : <b
+							th:text="${ed.getValue().values().toArray()[0]}"></b></td>
+					</tr>
+				</table>
+			</div>
+
+			<div
+				th:if="${ed.getValue().keySet().toArray()[0]-ed.getValue().values().toArray()[0]==0}">
+				<p style="margin-top: -50px; color: black;">
+					<b>echo quartier <span th:text="${ed.getKey()}"></span></b>
+				</p>
+				<table style="margin-top: -20px; margin-left: -10px;">
+					<tr style="width: 550px;">
+						<td>Produit(+) : <b
+							th:text="${ed.getValue().keySet().toArray()[0]}"></b></td>
+					</tr>
+					<tr style="width: 550px;">
+						<td>Consomme(-) : <b
+							th:text="${ed.getValue().values().toArray()[0]}"></b></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+
+	<div class="wrapper2">
+		<H1>Sites de Production de la ville et leurs bilan energitique
+			(en KW)</H1>
+		</center>
+		<div class="danger" th:if="${(producted_quantity+ville_bilan)*(-1)>0}">
+			<p>
+				<strong>Energie renouvlable insuffisante !  </strong><b
+					th:text="${(producted_quantity+ville_bilan)*(-1)}"></b> KW restante 
+			</p>
+		</div>
+
+		<div class="success" th:if="${(producted_quantity+ville_bilan)*(-1)==0}">
+			<p>
+				<strong>Energie renouvlable suffisante !</strong>
+			</p>
+		</div>
+
+		<div class="production_site" th:each="prod: ${prod_site}">
+			<table style="margin-top: 80px; text-align: center;">
+				<tr style="width: 450px;">
+					<td><span th:text="${prod.get('name')}"></span></td>
+				</tr>
+				<tr>
+					<td th:if="${prod.get('producted_quantity')!=null}"
+						style="width: 450px;"><b
+						th:text="${prod.get('producted_quantity')}"></b></td>
+					<td th:unless="${prod.get('producted_quantity')!=null}"
+						style="width: 450px;"><b>Inactif pour le moment</b></td>
+				</tr>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

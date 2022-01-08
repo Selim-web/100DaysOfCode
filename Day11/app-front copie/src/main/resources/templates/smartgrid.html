@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" th:href="@{/css/Hajar_Css/smart_grid_css.css}" />
+<script type="text/javascript">
+            function refresh(){
+            	var ajaxRequest = new XMLHttpRequest();
+            	ajaxRequest.onreadystatechange=function() {
+            	    if (this.readyState == 4 && this.status == 200) {
+            	      document.getElementById("demo").innerHTML=ajaxRequest.responseText;
+                     }
+            	  };
+            	ajaxRequest.open("GET","http://localhost:9001/map",false);
+                ajaxRequest.send(null);
+            }
+
+</script>
+</head>
+<body>
+<div th:replace="Menu :: header">...</div>
+<div id="demo">
+<div th:replace="map :: map">...</div>
+</div>
+</body>
+</html>
