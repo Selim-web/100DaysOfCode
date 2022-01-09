@@ -1,1 +1,3 @@
+Day11 : 
+
 Work on my school project with Spring boot. Today I added the modifications made during day10 to the frontend. I inserted the code related to the smart home dashboard. I retrieved the value of the store in base to display dynamically the opening of the store. 

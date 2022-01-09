@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{/css/all.css}" />
+  <link rel="stylesheet" th:href="@{/css/monitore.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+ <title>Consommation</title>
+ <style>
+    *{
+      font-family: 'M PLUS 1', sans-serif;
+    }
+
+    p, span{
+      text-align:center;
+      weight: bold;
+      font-family: verdana;
+      font-size: 20px;
+    }
+    div span{
+      
+    }
+    h1{ 
+      color: black;
+      text-align: center;
+    }
+    .value{
+      color: red;
+      padding-left:1%
+    }
+     </style>
+</head>
+<body>
+
+  <div th:replace="Menu :: header">...</div><!--ajout du menu-->
+
+  <div class="">
+    <h1>Liste des Consommations pour les équipements </h1>
+  </div>
+  <div>
+    <span>Consommation globale : </span>
+    <span class="value" th:text="${sum}"></span>
+  </div>
+
+    <table class="table">
+      <thead>
+        <!-- <tr>
+          <th scope="col">ID</th> -->
+          <th scope="col">Equipements</th>
+          <th scope="col">Room</th>
+          <th scope="col">Habitation</th>
+          <th scope="col">Power</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="power: ${powerlist}">
+           <!-- <td th:text="${power.id}"></td> -->
+           <td th:text="${power.equipmentName}"></td>
+           <td th:text="${power.roomName}"></td>
+           <td th:text="${power.habitationName}"></td>
+           <td th:text="${power.power}"></td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

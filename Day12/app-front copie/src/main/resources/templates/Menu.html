@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+  <div class="topnav" id="myTopnav" th:fragment="header">
+    <a th:href="@{/homePage}" id="kk1234" style="background-color: #796aee;">Home</a>
+    <!-- <a th:href="@{/searchCompany}">Recherche Entreprise</a> -->
+    <!-- <a th:href="@{/listCompany}">Liste Entreprise</a> -->
+    <div class="dropdown">
+      <button class="dropbtn">CRUD Entreprise
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a th:href="@{/createCompany}">Creer entreprise</a>
+        <a th:href="@{/updateCompany?operationName=update}">Modifier entreprise</a>
+        <a th:href="@{/updateCompany?operationName=delete}">Supprimer entreprise</a>
+      </div>
+    </div>
+    <!-- invisible if unemployee -->
+    <div th:if="${session.idCompany != null}">
+      <div id="dropdownBooking" class="dropdown" style="width:200px;">
+        <button class="dropbtn" style="width:200px">
+          <span>Nos salles</span>
+          <!-- deux fois le padding  -->
+        </button>
+      
+        <div class="dropdown-content" style="width:200px;border-radius: 0px 0px 15px 15px; ">
+          <a th:if="${session.role == 7 or session.role == 6 or session.role == 4 or session.role == 3 or session.role == 2}"
+            th:href="@{/booking}">Salles de travail</a>
+          <a th:if="${session.role == 6 or session.role == 4 or session.role == 3 or session.role == 2}"
+            th:href="@{/bookingMeeting}">Salles de réunions</a>
+          <a th:href="@{/summary}" style="border-radius: 0px 0px 10px 10px;">Récapitulatif</a>
+        </div>
+      </div>
+    </div>
+    <!-- <a th:href="@{/utiliserEquipement}">Utiliser les équipements</a> -->
+    <a th:href="@{/getHome?id=1}">BEPOS</a>
+    <a th:href="@{/energyByType}">Mix énergétique</a>
+    <a th:href="@{/mapGrid}">SmartGrid</a>
+    <!-------------------menu pour le scope 2------------------------------------------>
+    <div class="dropdown">
+      <button class="dropbtn">Monitoring
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a th:href="@{/power}">Consommation</a>
+        <a th:href="@{/}">Production</a>
+      </div>
+    </div>
+    <!------------------------------------ fin du menu pour le scope 2 ---------------------------------------->
+   
+
+    <!-- <a href="#about">About</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>-->
+  </div>
+</body>
+
+</html>

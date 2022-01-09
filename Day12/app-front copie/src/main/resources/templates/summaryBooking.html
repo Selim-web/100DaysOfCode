@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap-table.css}" />
+    <link rel="stylesheet" th:href="@{/css/summaryBooking.css}" />
+</head>
+
+<body>
+    <div th:replace="Menu :: header">...</div>
+    <input type="hidden" th:value="${sender}" id="idSender" />
+    <div id="containerGrille">
+        <main>
+            <h2>Récapitulatif de vos réservations : </h2>
+            <form th:action="@{/utiliserEquipement}" method="get">
+                <input type="hidden" value="0" id="choosedRoom" name="room_id" />
+                <table id="table" data-toggle="table" data-ajax="ajaxRequest" data-search="true" data-height="400"
+                    data-pagination="true" data-page-number="1" data-page-size="25">
+                    <thead>
+                        <tr>
+                            <th data-field="monitoring"></th>
+                            <th data-field="name" data-sortable="true">Nom de salle</th>
+                            <th data-field="floor" data-sortable="true">Etage</th>
+                            <th data-field="typeroom" data-sortable="true">Type de salle</th>
+                            <th data-field="daybooking" data-sortable="true">Journéee</th>
+                            <th data-field="starttime" data-sortable="true">Début</th>
+                            <th data-field="endtime" data-sortable="true">Fin</th>
+                        </tr>
+                    </thead>
+                </table>
+                <input type="submit" value="Equipement" id="viewEquipment" />
+            </form>
+        </main>
+    </div>
+    <script text="javascript" src="/js/summaryBooking.js"></script>
+    <div th:replace="message :: div"></div>
+</body>
+<script text="javascript" src="/js/message.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js">
+</script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/locale/bootstrap-table-fr-FR.min.js">
+</script>
+
+</html>

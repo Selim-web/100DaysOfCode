@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="EquipmentDwp/fragments :: html_head"/>
+<body>
+<div class="page">
+    <!-- Main Navbar de l'application à mettre ici-->
+    <header class="header z-index-50">
+        <div th:replace="Menu :: header">...</div>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <div th:replace="EquipmentDwp/fragments :: nav_menu"/>
+        <div class="container-fluid">
+            <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                <div class="container-fluid px-0">
+                    <h2 class="mb-0 p-1">Page pour la configuration des stores</h2>
+                </div>
+            </header>
+            <section class="pb-0">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="card card-body" style="border-radius: 10px; height: 250px;">
+                                <div class="header-blind"
+                                     style="display: flex; justify-content: space-between; padding-bottom: 30px;">
+                                    <h4>Store</h4>
+                                </div>
+                                <div class="main-blind" style="display: flex; justify-content: space-between;">
+                                    <div style="display: flex;">
+                                        <button class="button" onclick="removeHeight()">-</button>
+                                    </div>
+                                    <div id="Layer1"
+                                         style="position:absolute; left: 300px; top:10px; width:136px; height:132px; z-index:1">
+                                        <img name="xxx" src="images/cadre_window.png" id="cadre_window" alt="">
+                                    </div>
+                                    <div id="Layer2"
+                                         style="position:absolute; left:300px; top:11px; width:64px; height:58px; z-index:2">
+                                        <img name="yyy" src="images/store.png" id="store" alt=""
+                                             style="
+                                              width: 150px;
+                                            ">
+                                    </div>
+                                    <!--<div style="z-index: 1; border: 1px solid black; height: 150px; width: 150px;"><img
+                                        src="cadre_window.png" alt="" style="height: 150px; width: 150px;"></div>
+                                    <div style="z-index: 2;"><img id="store" src="store.png" alt=""></div>-->
+                                    <div style="display: flex;">
+                                        <button class="button" onclick="addHeight()">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="card card-body" style="border-radius: 10px;">
+                                    <h4>Ouverture(Pie Chart à venir)</h4>
+                                    <span id="height" th:text="${blindDwp.opening}"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="card card-body" style="border-radius: 10px;">
+                                    <h4>Modifier</h4>
+                                    <form method="post" th:action="@{'/updateBlind?room_id='+${blindDwp.id}}" th:object="${blindDwp}">
+                                        <input type="hidden" th:field="*{id}" name="id">
+                                        <input type="hidden" th:field="*{etat}" name="etat">
+                                        <input type="hidden" th:field="*{mode}" name="mode">
+                                        <input type="text" id="newHeight" th:field="*{opening}" name="opening">
+                                        <button type="submit" class="btn btn-primary">Valider</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="EquipmentDwp/fragments :: function_ajax"/>
+<script src="js/blind.js"></script>
+</body>
+</html>

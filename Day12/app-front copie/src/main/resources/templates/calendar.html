@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" th:href="@{/css/calendar.css}" />
+    <link rel="stylesheet" th:href="@{/fullcalendar/main.css}" />
+    <script text="javascript" src="/fullcalendar/main.js"></script>
+    <script text="javascript" src="/js/calendar.js"></script>
+</head>
+
+<body>
+    <div th:replace="Menu :: header">...</div>
+    <div id="containerGrille">
+        <div id="calendar">
+            <input type="hidden" th:value="${sender}" name="idUser" id="idUser" />
+
+        </div>
+    </div>
+
+    <div th:replace="message :: div"></div>
+</body>
+<script text="javascript" src="/js/message.js"></script>
+
+
+</html>
