@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script text="javascript" src="/js/booking.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap-table.css}" />
+    <link rel="stylesheet" th:href="@{/css/booking.css}" />
+    <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div th:replace="Menu :: header">...</div>
+
+    <div id="containerGrille">
+        <aside id="divLeft">
+            <div>
+                <h3 style="margin-bottom: 20px; color: #212529;text-align:center">Critères :</h3>
+                <div th:if="${type == 'meeting'}" class="criteria"><label for="title">Titre </label>
+                    <input type="text" id="titleMeeting" name="title" />
+                </div>
+                <div class="criteria"><label for="date">Quelle date </label>
+                    <input type="date" id="date" name="date" th:min="${minDate}" th:max="${maxdate}" />
+                    <a th:if="${type == 'meeting'}" th:href="@{/calendar?idUser={idUser}(idUser=${sender})}" class="tooltip"
+                        id="calandarBooking">
+                        <i style="color:#F7B2B7" class="fas fa-calendar-alt fa-1x"></i>
+                        <span class="tooltiptext">Aller voir son calendrier</span>
+                    </a>
+                </div>
+                <div class="criteria"><label for="startTime">Horaire d'arrivée</label>
+                    <input type="time" id="startTime" name="startTime" />
+                </div>
+                <div class="criteria"><label for="endTime">Horaire de départ</label>
+                    <input type="time" id="endTime" name="endTime" />
+                </div>
+                <div class="criteria"><label for="types">Type de salle </label>
+                    <select th:if="${type == 'other'}" name="types" id="types">
+                        <option value="openSpace">OpenSpace (1 place)</option>
+                        <option value="salleTravail">Salle de travail (1 place)</option>
+                        <option value="bureauSolo">Bureau individuel</option>
+                    </select>
+                    <div style="display:inline" th:if="${type == 'meeting'}"> : <span style="font-style: italic;"> Salle
+                            de réunions</span></div>
+                </div>
+                <input type="button" value="Rechercher" id="validate" th:data-parameter1="${type}"
+                    th:onclick="searchRoom(this.getAttribute('data-parameter1'))" />
+            </div>
+            <!-- more options if meeting  -->
+            <div id="optionsMeeting" th:if="${type == 'meeting'}">
+                <h3 style="margin-bottom: 20px; color: #212529;text-align:center">Critères de salles de réunion :</h3>
+                <div id="titleAddPeople">
+                    <span>Ajouter des collègues</span>
+                    <span>
+                        <div class="tooltip">
+                            <i th:data-parameter1="${sender}"
+                                th:onclick="addColleague(this.getAttribute('data-parameter1'))"
+                                class="fas fa-user-plus"></i>
+                            <span class="tooltiptext">Ajouter des collègues</span>
+                        </div>
+                    </span>
+                </div>
+                <div id="listPeopleforMeeting"></div>
+            </div>
+        </aside>
+        <main id="divRight">
+            <form th:action="@{/bookedRoom}" method="post">
+                <input type="hidden" value="0" name="roomId" id="roomId">
+                <input type="hidden" value="0" name="dateRoomChoose" id="dateRoomChoose">
+                <input type="hidden" value="0" name="startTimeChoose" id="startTimeChoose">
+                <input type="hidden" value="0" name="endTimeChoose" id="endTimeChoose">
+                <input type="hidden" value="0" name="listEmployee" id="listEmployeeInput">
+                <input type="hidden" value="0" name="titleMeetingForm" id="titleMeetingForm">
+                <input th:if="${type == 'meeting'}" type="hidden" name="idBooker" id="idBooker" th:value="${sender}">
+                <div id="divTable">
+                    <h3 style="margin-bottom: 20px;text-align:center; color :#212529">Résultats :</h3>
+                    <table id="table" data-toggle="table" data-height="300" data-ajax="ajaxRequest" data-search="true">
+                        <thead>
+                            <tr>
+                                <th data-field="choice" style=" color :#212529;"></th>
+                                <th data-sortable="true" data-field="name" style=" color :#212529;">Nom</th>
+                                <th data-field="nbr_room" style=" color :#212529;max-width:100px">N° de
+                                    salle</th>
+                                <th data-sortable="true" data-field="floor" style=" color :#212529;">Etage
+                                </th>
+                                <th data-field="listEquipment" class="listEquipment" style=" color :#212529;">Liste des
+                                    équipements
+                                </th>
+                                <th data-field="map"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <span id="spanInfoTable"><span style="color:orange">&#9888;</span> Veuillez sélectioner une salle
+                        dans le tableau</span>
+                </div>
+                <div>
+                    <input id="buttonValidate" type="submit" disabled value="Valider" />
+                </div>
+            </form>
+        </main>
+    </div>
+    <div th:replace="message :: div"></div>
+    <div id="myModalErrorInput" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Erreur de saisie</h2>
+                <span id="closeModalErrorInput" class="closeButtonTopModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img style="margin-right:2%" src="/images/box-important.png" />
+                <p>Veuillez remplir les champs nécessaires à savoir la date, l'heure de début et l'heure de fin</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModalButtonErrorInput" class="closeModalButton"
+                    onclick="closeModal('myModalErrorInput')">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <div id="myModalAddPeople" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ajouter des gens</h2>
+                <span id="closeModalAddPeople" class="closeButtonTopModal">&times;</span>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModalButtonAddPeople" class="closeModalButton"
+                    onclick="closeModal('myModalAddPeople')">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <div id="myModalConfort" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Configuration des équipements de type confort</h2>
+                <span id="closeModalConfort" class="closeButtonTopModal">&times;</span>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModalButtonConfort" class="closeModalButton"
+                    onclick="closeModal('myModalConfort')">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <div id="myModalDevice" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Configuration des équipements bureautiques</h2>
+                <span id="closeModalDevice" class="closeButtonTopModal">&times;</span>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closeModalButtonDevice" class="closeModalButton"
+                    onclick="closeModal('myModalDevice')">Fermer</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/locale/bootstrap-table-fr-FR.min.js">
+    </script>
+</body>
+<script text="javascript" src="/js/message.js"></script>
+
+
+</html>

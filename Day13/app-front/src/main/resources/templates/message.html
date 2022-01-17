@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+</head>
+<body>
+    <script text="javascript" th:href="@{/js/all.js}"></script>
+    <!-- Div cadre -->
+    <div id="cadre" class="cadreCollapse">
+        <!-- Div titre -->
+        <div id="titreMessagerie" onclick="displayMessagerie()">
+            <span id="title">Messages</span><i class="far fa-comments fa-sm"
+                style="display: inline-block; vertical-align: middle;"></i>
+        </div>
+        <!-- Div collapse  -->
+        <div id="divCollapse" class="divCollapse">
+            <!-- List Contact -->
+            <div id="divContact">
+                <div style="display: grid; grid-template-columns: auto auto;height:40px">
+                    <span th:data-parameter1="${sender}" th:data-parameter2="${idCompany}"
+                        th:onclick="displayFavoris(this.getAttribute('data-parameter1'),this.getAttribute('data-parameter2'), 'favoris')"
+                        style="cursor:pointer;margin:auto;">
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span th:data-parameter1="${sender}" th:data-parameter2="${idCompany}" style="cursor: pointer;margin:auto"
+                        th:onclick="displayFavoris(this.getAttribute('data-parameter1'),this.getAttribute('data-parameter2'),'employee')">
+                        <i class="fas fa-user-friends"></i>
+                    </span>
+                </div>
+                <div id="cacheForFavoris" th:if="${listUsers}">
+                    <table id="tableContact" style="width: 100%;">
+                        <tr th:each="user : ${listUsers}" th:data-parameter1="${sender}" th:data-parameter2="${user.id}"
+                            th:onclick="displayMessage(this.getAttribute('data-parameter1'), this.getAttribute('data-parameter2'))">
+                            <td class="divSpanStatus">
+                                <img th:if="${user.id} >= 0 and ${user.id} <= 300" src="/images/homme1.png" />
+                                <img th:if="${user.id} > 300 and ${user.id} <= 600" src="/images/homme2.png" />
+                                <img th:if="${user.id} > 600 and ${user.id} <= 900" src="/images/femme1.png" />
+                                <img th:if="${user.id} > 900 and ${user.id} <= 1500" src="/images/femme2.png" />
+                                <span th:if="${user.status == 'occupy'}" class="spanStatus" style="color:red;"><i class="fas fa-circle"
+                                        style="font-size:0.75rem"></i></span>
+                                <span th:if="${user.status == 'free'}" class="spanStatus" style="color:green;"><i class="fas fa-circle"
+                                        style="font-size:0.75rem"></i></span>
+                            </td>
+                            <td>
+                                <p><span style="color:#212529" th:text="${user.firstname}"> </span> <span style="color:#212529"
+                                        th:text="${user.lastname}"> </span>
+                                </p>
+                            </td>
+                            <td><i class="fas fa-angle-right"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Si la personne a aucune conversation -->
+                <div th:if="${listUsers == null}">
+                    Veuillez rechercher un contact et démarrer une conversation
+                </div>
+                </div>
+            <!-- List Message -->
+            <div id="messageContact" style="display: none;">
+                <div style="z-index:2;position:absolute;width:250px;background-color: white;cursor:pointer" onclick="displayContact()">
+                    <i class="fas fa-angle-double-left"></i>
+                </div>
+            
+                <div id="listMessage">
+                </div>
+            </div>
+            <div id="divSearchContact" style="display: none;">
+            </div>
+            <!-- Div barre en bas -->
+            <div id="divBas" style="display:none">
+                <input id="message" placeholder="Entrer un message.." onkeydown="activeSend()">
+                <div class="divIcone">
+                    <span class="tooltip">
+                        <i style="color:#ffffff;font-size:1.25em;cursor:pointer" class="far fa-star" onclick="addFavoris()"></i>
+                        <span class="tooltiptext">Ajouter au favoris</span>
+                    </span>
+                    <i class="far fa-paper-plane" onclick="sendMessage()" style="cursor:no-drop;color:white;font-size:1.25em"></i>
+                </div>
+            </div>
+            <div id="rechercheContact">
+                <input id="inputRechercheContact" placeholder="Rechercher un contact.." />
+                <div class="divIconeSearch">
+                    <i class="fas fa-search fa-2x" style="cursor:pointer;color:white;"
+                    th:onclick="'rechercheContact(\'' + ${sender} + '\',\'' + ${idCompany} + '\')'"></i>
+                </div>
+                </div>
+        </div>
+        </div>
+        <script text="javascript" src="/js/message.js"></script>
+</body>
+
+</html>

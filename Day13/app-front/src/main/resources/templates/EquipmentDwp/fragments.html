@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="html_head">
+    <meta charset="utf-8">
+    <!--<title>Controler les équipements d'un DWP</title>-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- Choices CSS-->
+    <link rel="stylesheet" href="vendor/choices.js/public/assets/styles/choices.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="./css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" href="/../css/main.css"/>
+    <link rel="stylesheet" href="/css/modal.css"/>
+
+
+    <!-- JavaScript files-->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/just-validate/js/just-validate.min.js"></script>
+    <script src="vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+</head>
+
+<body>
+    <div th:fragment="nav_menu">
+        <!-- Side Navbar -->
+        <nav class="side-navbar z-index-40">
+            <!-- Sidebar Header-->
+            <!-- Sidebar Navidation Menus-->
+            <ul class="list-unstyled py-4">
+                <li class="sidebar-item active"><a class="sidebar-link" th:href="@{/utiliserEquipement(room_id = ${#httpServletRequest.getParameter('room_id')})}">
+                        <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                            <use xlink:href="#real-estate-1"> </use>
+                        </svg>Home </a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown"
+                        data-bs-toggle="collapse">
+                        <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                            <use xlink:href="#browser-window-1"> </use>
+                        </svg>Les Equipements</a>
+                    <ul class="collapse list-unstyled " id="exampledropdownDropdown">
+                        <li><a class="sidebar-link" th:href="@{/chauffage(room_id = ${#httpServletRequest.getParameter('room_id')})}">Chauffage</a></li>
+                        <li><a class="sidebar-link" th:href="@{/Lumiere(room_id = ${#httpServletRequest.getParameter('room_id')})}">Lumiere</a></li>
+                        <li><a class="sidebar-link" th:href="@{/blind(room_id = ${#httpServletRequest.getParameter('room_id')})}">Store</a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{/Surveillance}">
+                        <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                            <use xlink:href="#sales-up-1"> </use>
+                        </svg>Surveillance </a>
+                </li>
+                <li class="sidebar-item"><a class="sidebar-link" th:href="@{/}">
+                        <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                            <use xlink:href="#disable-1"> </use>
+                        </svg>Login page </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div th:fragment="function_ajax">
+        <script>
+            // ------------------------------------------------------- //
+            //   A MODIFIER !!
+
+            //   Inject SVG Sprite -
+            //   see more here
+            //   https://css-tricks.com/ajaxing-svg-sprite/
+            // ------------------------------------------------------ //
+            function injectSvgSprite(path) {
+
+                var ajax = new XMLHttpRequest();
+                ajax.open("GET", path, true);
+                ajax.send();
+                ajax.onload = function (e) {
+                    var div = document.createElement("div");
+                    div.className = 'd-none';
+                    div.innerHTML = ajax.responseText;
+                    document.body.insertBefore(div, document.body.childNodes[0]);
+                }
+            }
+            // this is set to BootstrapTemple website as you cannot
+            // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+            // while using file:// protocol
+            // pls don't forget to change to your domain :)
+            injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+
+
+        </script>
+    </div>
+</body>
+
+</html>

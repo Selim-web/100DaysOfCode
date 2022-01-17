@@ -1,0 +1,4 @@
+Day 13 : 
+
+After a week of infection with covid-19, it was impossible for me to code during this week. I resumed coding while continuing to work on my school project in Java with the Spring Boot framework.
+I worked on the frontend and backend, used Javascript, Thymeleaf, HTML and CSS.

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="EquipmentDwp/fragments :: html_head">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+
+<body>
+    <div class="page">
+        <!-- Main Navbar de l'application à mettre ici-->
+        <header class="header z-index-50">
+            <div th:replace="Menu :: header">...</div>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <div th:replace="EquipmentDwp/fragments :: nav_menu" />
+            <div class="container-fluid">
+                <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                    <div class="container-fluid px-0">
+                        <h2 class="mb-0 p-1">Configuration du chauffage</h2>
+                    </div>
+                </header>
+                <section class="pb-0">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <div class="py-10 py-md-16">
+                                <div class="text-center">
+                                    <p class="mb-1 fw-bold">Température Extérieur</p>
+                                    <h1 class="mb-0 lh-sm"><span th:text="${temp.intValue()}"></span>°C</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pb-0">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <div class="py-10 py-md-16">
+                                <div class="text-center">
+                                    <p class="mb-1 fw-bold">Température de consigne</p>
+                                    <h1 class="mb-0 lh-sm"><span th:text="${heatingDwp.temperature}"></span>°C</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pb-0">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <nav class="navbar navbar-light bg-white">
+                                <a class="navbar-brand" href="#"><button type="button"
+                                        class="btn btn-primary Modal-btn-economique">Économique</button></a>
+                                <a class="navbar-brand" href="#"><button type="button"
+                                        class="btn btn-primary Modal-btn-confort">Confort</button></a>
+                                <a class="navbar-brand" href="#"><button type="button"
+                                        class="btn btn-primary Modal-btn-automatique">Automatique</button></a>
+                                <a class="navbar-brand" href="#"><button type="button"
+                                        class="btn btn-primary Modal-btn-manuel">Manuel</button></a>
+                            </nav>
+                        </div>
+                    </div>
+            </section>
+            <section class="pb-0">
+                <div class="card mb-3">
+                    <div class="card-body p-3">
+                        <div class="row align-items-center gx-lg-5 gy-3">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3 me-3">
+                                            <h3 class="h4 text-gray-700 mb-0">Mode Economique</h3>
+                                        </div>
+                                    </div><span class="text-sm text-gray-600 d-none d-sm-block">Position économique,
+                                        réduction de 5° par rapport au mode allumé confort. Ce mode est à favoriser
+                                        la nuit ou lors d’une absence de plusieurs heures. Si ce mode est activé
+                                        alors dès lors ou la température intérieur baisse en dessous de 15°, le
+                                        chauffage s’activera. </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body p-3">
+                        <div class="row align-items-center gx-lg-5 gy-3">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3 me-3">
+                                            <h3 class="h4 text-gray-700 mb-0">Mode Confort</h3>
+                                        </div>
+                                    </div><span class="text-sm text-gray-600 d-none d-sm-block">Radiateur allumé
+                                        pour une utilisation normale. La température est réglée à 20° avec cette
+                                        option. Si ce mode est activé alors dès lors ou la température intérieur
+                                        baisse en dessous de 20°, le chauffage s’activera. </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body p-3">
+                        <div class="row align-items-center gx-lg-5 gy-3">
+                            <div class="col-lg-12 ">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3 me-3">
+                                            <h3 class="h4 text-gray-700 mb-0">Mode Automatique</h3>
+                                        </div>
+                                    </div><span class="text-sm text-gray-600 d-none d-sm-block"> Température en
+                                        fonction de notre programmation. Permet de régler la température en fonction
+                                        des jours et des heures, une alternance entre les positions éco et confort
+                                        par exemple pour optimiser au mieux notre consommation. </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body p-3">
+                        <div class="row align-items-center gx-lg-5 gy-3">
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms-3 me-3">
+                                            <h3 class="h4 text-gray-700 mb-0">Mode Manuel</h3>
+                                        </div>
+                                    </div><span class="text-sm text-gray-600 d-none d-sm-block"> Modification de la
+                                        température de consigne par l’utilisateur. Si la température mesurée est
+                                        inférieure à la nouvelle température instaurée par l’utilisateur, alors le
+                                        chauffage se déclenche. </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="Modal-Manuel">
+            <div class="Modal">
+                <form method="post" th:action="@{'/updateHeating?room_id='+${heatingDwp.id}+'&modeName=manuel'}"
+                    th:object="${heatingDwp}">
+                    <h2>Configurez votre température souhaité au sein du DWP </h2>
+                    <input type="hidden" th:field="*{etat}" name="etat">
+                    <input type="hidden" th:field="*{id}" name="id">
+                    <input type="hidden" th:field="*{mode}" name="mode">
+                    <input type="number" min="6" max="30" th:field="*{temperature}" name="temperature">
+                    <button type="submit" class="btn btn-primary Btn-close">Valider</button>
+                </form>
+                <span class="Modal-close">X</span>
+            </div>
+        </div>
+        <div class="Modal-Automatique">
+            <div class="Modal">
+                <form method="post" th:action="@{'/updateHeating?room_id='+${heatingDwp.id}+'&modeName=automatique'}"
+                    th:object="${heatingDwp}">
+                    <h2>Êtes-vous sur de vouloir activer le mode automatique ?</h2>
+                    <input type="hidden" th:field="*{id}" name="id">
+                    <input type="hidden" th:field="*{etat}" name="etat">
+                    <input type="hidden" th:field="*{mode}" name="mode">
+                    <input type="hidden" th:field="*{temperature}" name="temperature">
+                    <button type="submit" class="btn btn-primary Btn-close">Valider</button>
+                </form>
+                <span class="Modal-close-auto">X</span>
+            </div>
+        </div>
+        <div class="Modal-Confort">
+            <div class="Modal">
+                <form method="post" th:action="@{'/updateHeating?room_id='+${heatingDwp.id}+'&modeName=confort'}"
+                    th:object="${heatingDwp}">
+                    <h2>Êtes-vous sur de vouloir activer le mode confort ?</h2>
+                    <input type="hidden" th:field="*{id}" name="id">
+                    <input type="hidden" th:field="*{etat}" name="etat">
+                    <input type="hidden" th:field="*{mode}" name="mode">
+                    <input type="hidden" th:field="*{temperature}" name="temperature">
+                    <button type="submit" class="btn btn-primary Btn-close">Valider</button>
+                </form>
+                <span class="Modal-close-confort">X</span>
+            </div>
+        </div>
+        <div class="Modal-Economique">
+            <div class="Modal">
+                <form method="post" th:action="@{'/updateHeating?room_id='+${heatingDwp.id}+'&modeName=economique'}"
+                    th:object="${heatingDwp}">
+                    <h2>Êtes-vous sur de vouloir activer le mode écnomique ?</h2>
+                    <input type="hidden" th:field="*{id}" name="id">
+                    <input type="hidden" th:field="*{etat}" name="etat">
+                    <input type="hidden" th:field="*{mode}" name="mode">
+                    <input type="hidden" th:field="*{temperature}" name="temperature">
+                    <button type="submit" class="btn btn-primary Btn-close">Valider</button>
+                </form>
+                <span class="Modal-close-economique">X</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div th:replace="EquipmentDwp/fragments :: function_ajax" />
+    <div th:replace="message :: div"></div>
+
+    <script src="js/modal.js"></script>
+</body>
+<script text="javascript" src="/js/message.js"></script>
+
+</html>
