@@ -1,0 +1,6 @@
+Day 14 : 
+
+Today I worked on using Docker to deploy an application on Aws, Azure and Google Cloud. 
+I'm still working on the Docker part because I'm facing some php and compose installation issues. 
+I want to deploy a Laravel application. A replica of Instragram coded with FreeCodeCamp
+
