@@ -1,0 +1,6 @@
+Today, I continued to work on docker by creating a docker image of a Spring Boot application. 
+The idea is to try to deploy my school project with Aws
+
+To build image, we need to write in the root file : docker build -t name_of_image . 
+Then we run the image with : docker run -p port:port (8080:8080) name_of_image 
+
