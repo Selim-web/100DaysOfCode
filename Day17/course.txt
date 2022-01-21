@@ -1,0 +1,18 @@
+Day 17 : 
+
+Today, I continued working on docker and application deployment with AWS. 
+The bug on docker was fixed during day 15 and my account was active this morning on AWS.
+I followed a tutorial to deploy a docker image on AWS. 
+I used Elastic Container Registry and created a private repository. 
+Then I performed several aws-cli and docker commands to configure AWS. 
+Once the connection was established between docker and ans, I created a cluster to run task requests on it. 
+I followed the configurations of the tutorial and create a service in the cluster. 
+I launched the container and I was able to access my Laravel application, dockerizer before, via a public IP address provided by AWS
+
+This deployment tutorial with Docker and Aws really made me want to continue learning more about AWS. 
+I think during the next few days, I will do a more advanced course on its use. 
+
+PS : I don't have a code file because everything was done on my terminal and on aws.amazon.com/console
+
+PS 2 : The tutorial I did is this one from the FreeCodeCamp channel on youtube :
+ https://www.youtube.com/watch?v=-ANCcFQBk6I&t=5114s&ab_channel=freeCodeCamp.org
