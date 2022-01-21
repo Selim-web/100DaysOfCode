@@ -1,0 +1,15 @@
+Day 16 : 
+
+Today I realized that I had not pushed my work day yesterday, I am contracted. 
+Yesterday I worked on the automation of an equipment related to my school project. 
+I started to write an algorithm and used Scheduling annotation in Spring Boot.
+It is for check the outside temperature every minute. 
+If it changes, then all the equipment that is in automatic mode will have an updated temperature. 
+
+The method is written this way in Java: 
+
+ @Scheduled(fixedRate = 60000) // refresh
+public void CheckOutdoorTemp() {
+        Integer temp_exterieur = heatingDwpRepo.getScenario(); // recovery of the temperature in database
+        heatingDwpRepo.updateTemperature(temp_exterieur); // update the temperature 
+    }
