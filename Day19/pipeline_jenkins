@@ -1,0 +1,23 @@
+pipeline {
+    agent { label 'master' }
+    tools {
+        maven '3.8.3'
+    }
+  
+    stages {
+        stage('Checkout') {
+        steps {
+            git(
+            url:'http://172.31.249.229/cedric.fay/backend-service',
+            branch:"master"
+            )
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile install'
+            }
+        }
+        }
+          
+}

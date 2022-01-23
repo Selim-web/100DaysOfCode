@@ -1,0 +1,10 @@
+Day19 : 
+
+Today, I coded for my school project and had time to do a lot of things.
+First, I worked on the continuous integration of the project. 
+I added a pipeline on Jenkins in order to scan our gitlab server and deploy continuously in our integration server. 
+Our server is an Ubuntu 18.04 virtual machine. 
+
+Then, I coded on the front end using javaScript to have dynamic content. 
+Then I did a refactoring at the git level.
+Finally, I started to think about an algorithm related to the energy consumption of my equipment. 
