@@ -1,0 +1,9 @@
+Day20 : 
+
+Today I coded on my school project with my group. 
+Our goal during this iteration is to use mocks to insert data in the base. 
+The idea is to create an external application in order to be able to execute mocks. They will populate our database. 
+I used Spring Boot and created a mini backend with a UserMock class that implements the InitializingBean interface.
+In order to have attributes in a random way and rather in adequacy, I used the Java Faker library
+
+
