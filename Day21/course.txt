@@ -1,0 +1,11 @@
+Day21 : 
+
+In this day I work on my backend school project. 
+My scope related to my school project is to use equipment via the app.
+Our product owner asked me to automate the use of the equipment. 
+I worked on the automation of the heating by taking into account the indoor and outdoor temperature.
+I took back the algorithm done during the day18. 
+I had to take into account in the database a table named scenario which will be fed by mocks.
+
+the code : project.java 
+
