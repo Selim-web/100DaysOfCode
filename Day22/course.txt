@@ -1,0 +1,3 @@
+Day22 : 
+
+Today I didn't have much time to code so I improved, made some tests with mocks about the Day21 algorithm. 
