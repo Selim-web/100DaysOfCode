@@ -1,0 +1,7 @@
+Day23 : 
+
+I worked on my school project backend. 
+I improved my algorithm and did a lot of testing with mocks. 
+
+the code : project.java 
+
