@@ -1,0 +1,12 @@
+Day24 : 
+
+Today I worked again on the backend of my school project and especially on the mocks. 
+I did a lot of testing to see if the backend algorithms work properly. 
+
+In my mock application, I retrieved the model for the heating equipment and its repository. 
+I then created a number of heaters in N room in a foreach loop. 
+Then in a scenario table, I added N sensors according to N heaters with a foreach loop too.
+
+I launched my backend and saw if my two checking functions reacted well. 
+I modified the data while the backend was running, during the schedule time interval : the tests are ok
+
