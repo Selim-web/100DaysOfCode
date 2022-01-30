@@ -1,0 +1,7 @@
+Day25 : 
+
+Today I didn't have much time in front of me to produce code and advance in my school project. 
+So I decided to do some more tests with different scenarios. 
+My mocks allowed me to realize that the sequences with JPA, keeps in memory the id already allocated.
+In short, I need to work on sequences and generatedvalues because I haven't really understood this notion.
+
