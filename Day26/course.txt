@@ -1,0 +1,30 @@
+Day26 : 
+
+Today, I worked on the consumption part of my scope. 
+I have to monitor the use of the equipment in each room according to the employee who uses the equipment. 
+
+I thought about an algorithm that I split into several methods. To add real time consumption, 
+I wrote a method with a SQL query that allows me to know: if an employee has a current reservation in a booking table. 
+
+requete SQL : "select 1 from booking where start_time <= ?2 and end_time >= ?2 and id_person=?1"
+
+It takes as parameter a given date and the id of an employee. There will be a schedule that will browse a list. 
+To get results quickly, a date will be given and will evolve during the schedule. Otherwise a now() would have been enough to make real time. 
+
+Working with dates in java is not that simple!
+
+For the moment the code to check is : 
+
+public void AddConsumption() {
+        Iterable<Employee> employeeList = employeeRepo.findAll();
+        //System.out.println(employeeList);
+        LocalDate date = LocalDate.of(2022,01,05);
+        System.out.println(date+"T21:00:00");
+        String valueTime = date+"T21:10:00";
+        LocalDateTime dateTime = LocalDateTime.parse(valueTime);
+        for (Employee employe: employeeList) {
+            System.out.println(dateTime);
+           System.out.println(consumptionDwpRepo.checkIfEmployeHaveBooked(employe.getIdEmployee(),dateTime)); // I need to add : if result of this condition is == 1, add Consumption in Room_id = ? with id_person = ?
+        }
+
+    }
