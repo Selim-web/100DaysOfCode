@@ -1,0 +1,14 @@
+Day27 : 
+
+This week is a company week. I am an apprentice engineer in information systems. 
+I am working at Enedis Paris. I have a position of developer. 
+The technical stack is : Php, Laravel framework and we are hosting with Azure. 
+My mission of the day was to add a user attribute from a library we added to the project. 
+The library is: https://github.com/haruncpi/laravel-user-activity 
+
+The particularity of this one is that it uses angularJs. 
+I had to put my feet in it and it was not easy !
+
+The project that we are developing in the company is to have a census of the electrical clearances,
+for each agency in Paris and each department in the region. 
+Local managers will then be able to use this management tool to facilitate their daily work. 
