@@ -1,0 +1,12 @@
+Day28 : 
+
+Today in the company, we didn't have any new features to develop so we did some code review and comments in the custom classes.
+
+Having had some free time, I advanced on the backend of my school project. 
+I have started the consumption part of my scope since Day26. 
+I have since revised the function that checks if an employee has made a reservation by making the date evolve faster for testing. 
+
+Then once I got the list of rooms where to evolve the consumption in relation to the employee_id, 
+I started to think about how to add consumption according to the type of equipment. 
+
+code : consumption.java 
