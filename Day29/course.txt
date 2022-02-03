@@ -1,0 +1,4 @@
+Day29 : 
+
+Yesterday, at work I didn't really code but did some research on the integration of a sso library for laravel. 
+I spent a lot of time on the documentation. 
