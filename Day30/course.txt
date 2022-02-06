@@ -1,0 +1,8 @@
+Day30 : 
+
+Yesterday I have made a lot of progress on what I started at Day26. The service related to the consumption calculation is finished. 
+For the moment only the consumption related to heating is calculated. 
+I'm going to move to the front with the display of a graph with ChartJS
+
+the code : project.java
+
