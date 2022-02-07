@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="EquipmentDwp/fragments :: html_head" />
+
+<body>
+    <!-- Script JS pour ChartJS example -->
+    <script src="js/charts-custom.js"></script>
+    <!-- -->
+    <div class="page">
+        <!-- Main Navbar-->
+        <header class="header z-index-50">
+            <div th:replace="Menu :: header">...</div>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            <div th:replace="EquipmentDwp/fragments :: nav_menu"></div>
+
+            <div class="content-inner w-100">
+                <!-- Page Header-->
+                <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+                    <div class="container-fluid px-0">
+                        <h2 class="mb-0 p-1">Page pour visualiser la consommation du DWP</h2>
+                    </div>
+                </header>
+                <!-- Breadcrumb-->
+                <div class="bg-white">
+                    <div class="container-fluid">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0 py-3">
+                                <li class="breadcrumb-item"><a class="fw-light"
+                                        th:href="@{/utiliserEquipement}">Home</a></li>
+                                <li class="breadcrumb-item active fw-light" aria-current="page">Surveillance</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Charts Section-->
+                <section class="charts">
+                    <div class="container-fluid">
+                        <canvas id="myChart" width="200" height="200"></canvas>
+                    </div>
+                </section>
+                <!-- Page Footer-->
+                <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs"
+                    id="footer">
+                </footer>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div th:replace="EquipmentDwp/fragments :: function_ajax" />
+    <script th:inline="javascript">
+        var canvas = document.querySelector("canvas");
+
+        var ctx1 = canvas.getContext("2d");
+        var gradient1 = ctx1.createLinearGradient(150, 0, 150, 300);
+        gradient1.addColorStop(0, "rgba(133, 180, 242, 0.91)");
+        gradient1.addColorStop(1, "rgba(255, 119, 119, 0.94)");
+
+        var gradient2 = ctx1.createLinearGradient(146.0, 0.0, 154.0, 300.0);
+        gradient2.addColorStop(0, "rgba(104, 179, 112, 0.85)");
+        gradient2.addColorStop(1, "rgba(76, 162, 205, 0.85)");
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: "bar",
+            options: {
+                legend: { labels: { fontColor: "#777", fontSize: 12 } },
+                scales: {
+                    xAxes: [
+                        {
+                            display: true,
+                            gridLines: {
+                                color: "#eee",
+                            },
+                        },
+                    ],
+                    yAxes: [
+                        {
+                            display: true,
+                            gridLines: {
+                                color: "#eee",
+                            },
+                        },
+                    ],
+                },
+            },
+            data: {
+                labels: [[${ keySet }]],
+                datasets: [
+                    {
+                        label: "Data Set One",
+                        fill: true,
+                        lineTension: 0.3,
+                        backgroundColor: gradient1,
+                        borderColor: gradient1,
+                        borderCapStyle: "butt",
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: "miter",
+                        borderWidth: 1,
+                        pointBorderColor: gradient1,
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: gradient1,
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [[${ values }]],
+                        spanGaps: false,
+                    },
+                ],
+            },
+        });
+    </script>
+    <script src="vendor/chart.js/Chart.js"></script>
+</body>
+
+</html>

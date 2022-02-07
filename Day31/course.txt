@@ -1,0 +1,14 @@
+Day30 : 
+
+Between yesterday and today, I started the front end in relation to the backend functions built in relation to consumption. 
+I coded the proxy, the service and the controller in question and then I used ChartJS to make a graph. 
+I was confronted with a problem that I would get a list of maps, but to make my chart with ChartJS I needed only one map. 
+I then converted the list to a map in the backend and it worked fine.
+
+The second problem I had was that the values were not in order. 
+I changed my map to linkedhashmap in order to have the values in order in the query output. 
+
+Now that the display of data between the frontend and the backend is going well, I will be able to do more testing and see if the graphs evolve accordingly. 
+
+You can find the HTML/CSS/JAVASCRIPT code in the project.java file and JAVA code in project.java 
+
