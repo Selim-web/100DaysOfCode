@@ -1,0 +1,7 @@
+Day32 : 
+
+Today I didn't do much coding, I did a lot of testing with what was set up on the front end. 
+I noticed that as I use a map, if I consume on the same date in two different rooms, only one value is displayed because the key can't be duplicated. To fix this, 
+I'm going to sum the two energies or differentiate the consumption according to the employee_id and the room_id 
+
+I've also thought about redesigning the front end to include the consumption graph. 
