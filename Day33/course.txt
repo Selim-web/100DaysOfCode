@@ -1,0 +1,6 @@
+Day33 : 
+
+Yesterday, I resumed the mockup of my smart dashboard home started at Day08. 
+I got a project back in HTML/CSS/JS with the Bootstrap framework injected. 
+I'm using the same technology on the front end for my school project with Thymleaf as well for the data. 
+
