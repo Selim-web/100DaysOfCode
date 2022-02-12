@@ -1,0 +1,6 @@
+Day35 : 
+
+Today, I debugged many relation OneToOne in my backend school project with Spring Data JPA. 
+I took the opportunity to read the documentation and do a lot of testing to better understand the technique. 
+
+Example in : JPAData.java 
