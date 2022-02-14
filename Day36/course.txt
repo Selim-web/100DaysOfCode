@@ -1,0 +1,8 @@
+Day36 : 
+
+Today I coded in my company in Laravel with PHP. 
+I work on SSO Authentification to make an unique user authentification between applications protected by the same realm
+I mostly read documentation about the protocol to putting into service. 
+I saw that I’m bloqued by CCL certificate to request before the librairy installation.
+
+I have done the request, I wait ...
