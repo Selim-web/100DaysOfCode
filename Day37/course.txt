@@ -1,0 +1,5 @@
+Day37 : 
+
+Before yesterday and yesterday I worked on a front-end technique: parallax scrolling. 
+My company asked me to train on it in order to create a future project using this technology. 
+I really enjoyed working on it because it allowed me to revise a lot of frontend notions. 

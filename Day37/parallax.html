@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppings', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #fff;
+            min-height: 100vh;
+        }
+
+        #header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        #header .title {
+            display: flex;
+        }
+
+        #header .img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #header .logo {
+            color: #f4867e;
+            font-weight: 700;
+            font-size: 2em;
+            text-decoration: none;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+
+        #header ul {
+            display: flex;
+            justify-self: center;
+            align-items: center;
+        }
+
+        #header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        #header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #f4867e;
+
+        }
+
+        #header ul li a:hover {
+            color: #f5cbcb;
+
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #a39f93, transparent);
+            z-index: 10;
+
+        }
+
+        section #text {
+            top: 50%;
+            position: fixed;
+            color: #f4867e;
+            font-size: 10vw;
+            text-align: center;
+            transform: translateY(-50%);
+            z-index: 1;
+
+        }
+
+        section #text span {
+            font-size: 0.20em;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        section #text2 {
+            top: 50%;
+            position: fixed;
+            color: #fff;
+            font-size: 10vw;
+            text-align: center;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0;
+
+        }
+
+
+        section #text2 span {
+            font-size: 0.20em;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+
+        #man {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            bottom: 0;
+            left: 80%;
+            top: 70%;
+            opacity: 1;
+
+        }
+
+        #btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            background: #f4867e;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 40px;
+            transform: translateY(100px);
+            z-index: 1000;
+        }
+
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #f4bcbc;
+        }
+
+        .sec h2 {
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+
+        #top {
+            height: 300px;
+            width: 100%;
+            background-color: #f4867e;
+        }
+
+        #para1 {
+            background: url("debut_jour.png");
+            width: 100%;
+            height: 900px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+
+        #para2 {
+            background: url("jour.png");
+            width: 100%;
+            height: 900px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #para3 {
+            background: url("debut_nuit.png");
+            width: 100%;
+            height: 900px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        #para4 {
+            background: url("nuit.png");
+            width: 100%;
+            height: 900px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        #bot {
+            height: 50px;
+            width: 100%;
+            background: rgb(61, 43, 91);
+            background: linear-gradient(180deg, rgba(61, 43, 91, 1) 24%, rgba(243, 156, 166, 1) 86%);
+        }
+
+        .fixed-content {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* overflow-y: scroll; */
+            /* overflow-x: hidden; */
+        }
+
+        #photographe {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            position: absolute;
+            left: 100px;
+            object-fit: cover;
+        }
+
+        #burger {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            position: absolute;
+            left: 100px;
+        }
+
+        #cours {
+            height: 200px;
+            width: 200px;
+            border-radius: 10px;
+            position: absolute;
+            left: 80%;
+            transform: rotate(25deg);
+
+        }
+
+        #mecanicien {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+            position: absolute;
+            left: 80%;
+
+        }
+
+        #para2 .text {
+            border-radius: 10px;
+            background: #f4ecef;
+            align-self: center;
+            text-align: center;
+            width: 70%;
+            padding: 50px;
+            font-size: 1em;
+            color: #f4867e;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2 id="text"><span>L'économie Collaborative,</span><br>Une économie win win</h2>
+        <h2 id="text2"><span>L'économie Collaborative,</span><br>Une économie à grande echelle</h2>
+        <!-- <img src="bird.png" id="bird"> -->
+        <img src="city.jpg" id="city">
+        <img src="man.png" id="man">
+        <!-- <a href="#" id="btn">Explore</a> -->
+    </section>
+    <div class="sec">
+        <h2>Parallax</h2>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod pretium dignissim. Donec sit amet
+            pulvinar nisl. Nulla aliquam consectetur elit a ultrices. Sed eget iaculis sem, id viverra elit. Phasellus
+            venenatis lectus vitae nisi sagittis aliquet a ac augue. Vestibulum eu mi vitae sapien egestas sollicitudin.
+            In hac habitasse platea dictumst. Morbi volutpat massa porttitor ex laoreet, interdum bibendum nulla
+            volutpat. Nullam ullamcorper a sem dictum pellentesque. Fusce condimentum ipsum magna, et finibus dui
+            vulputate mattis. Pellentesque in tempor leo. Sed eleifend posuere sapien at lobortis. Sed elit orci,
+            vestibulum non posuere eget, ultrices in enim.<br><br>
+
+            Quisque vitae nibh ornare, sagittis metus et, semper metus. In quis tortor neque. Nulla et massa auctor,
+            aliquam diam in, maximus lorem. Cras laoreet tempus congue. Praesent commodo dui felis, et lobortis quam
+            varius ac. Vivamus euismod nisl at nulla pellentesque tincidunt. Nulla a congue est. Interdum et malesuada
+            fames ac ante ipsum primis in faucibus. Nam neque est, blandit sed mattis sit amet, molestie pellentesque
+            nulla. Morbi tincidunt risus id faucibus ullamcorper. Curabitur metus nisi, euismod a tristique ac,
+            sollicitudin et ante. Sed imperdiet, libero vel eleifend ullamcorper, tortor lacus imperdiet tellus, ut
+            viverra nulla massa quis ipsum. Nulla laoreet posuere aliquam.<br><br>
+
+            Duis ultricies metus libero. Mauris varius, justo non tristique accumsan, purus nibh feugiat metus,
+            malesuada pellentesque ligula sapien condimentum augue. Phasellus porttitor sollicitudin purus, at
+            pellentesque enim facilisis ut. Fusce commodo, metus et elementum tincidunt, ligula purus faucibus ligula,
+            quis efficitur dui enim quis nibh. Pellentesque aliquet sem et justo placerat, in suscipit orci placerat. Ut
+            porttitor arcu eu nisi blandit tincidunt. Suspendisse pharetra metus vitae tristique efficitur. Ut pretium
+            semper egestas. Etiam a nunc quis leo ornare laoreet.<br><br>
+
+            Ut a magna vestibulum, placerat justo non, sagittis purus. Proin sit amet elit posuere, laoreet risus nec,
+            commodo magna. Integer auctor diam vel venenatis placerat. Nunc maximus sem sed sapien ultrices
+            sollicitudin. Morbi scelerisque risus sed felis tempus vehicula. Nunc interdum, felis sit amet euismod
+            ultricies, ex velit commodo nibh, eget feugiat ipsum ligula eu risus. Etiam scelerisque massa efficitur ante
+            sodales suscipit. Duis et mollis tortor. Aliquam tincidunt imperdiet arcu ut ornare. Nunc luctus fringilla
+            ligula, nec accumsan mauris blandit consectetur. </p>
+    </div>
+    <div id="para1">
+        <img src="photographe.png" id="photographe" class="rellax">
+        <img src="burger.png" id="burger" class="rellax" data-rellax-speed="1">
+        <img src="cours.png" id="cours" data-rellax-speed="2">
+        <img src="mecanicien.png" id="mecanicien" class="rellax" data-rellax-speed="7">
+
+    </div>
+    <div id="para2">
+        <div class="text">
+            Quisque vitae nibh ornare, sagittis metus et, semper metus. In quis tortor neque. Nulla et massa auctor,
+            aliquam diam in, maximus lorem. Cras laoreet tempus congue. Praesent commodo dui felis, et lobortis quam
+            varius ac. Vivamus euismod nisl at nulla pellentesque tincidunt. Nulla a congue est. Interdum et
+            malesuada
+            fames ac ante ipsum primis in faucibus. Nam neque est, blandit sed mattis sit amet, molestie
+            pellentesque
+            nulla. Morbi tincidunt risus id faucibus ullamcorper. Curabitur metus nisi, euismod a tristique ac,
+            sollicitudin et ante. Sed imperdiet, libero vel eleifend ullamcorper, tortor lacus imperdiet tellus, ut
+            viverra nulla massa quis ipsum. Nulla laoreet posuere aliquam.<br><br>
+        </div>
+        <img src="photographe.png" id="photographe">
+        <img src="burger.png" id="burger" class="rellax" data-rellax-speed="1">
+        <img src="cours.png" id="cours">
+        <img src="mecanicien.png" id="mecanicien" class="rellax" data-rellax-speed="7">
+    </div>
+    <div id="para3"></div>
+    <!-- <div class="fixed-content">Test</div> -->
+    <div id="para4"></div>
+    <div id="bot"></div>
+    <div id="para1"></div>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script>
+        var rellax = new Rellax('.rellax');
+    </script>
+    <script>
+        let photographe = document.getElementById('photographe');
+        let text = document.getElementById('text');
+        let city = document.getElementById('city');
+        let header = document.getElementById('header');
+        let burger = document.getElementById('burger');
+        let man = document.getElementById('man');
+        let text2 = document.getElementById('text2');
+
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+
+            let test = window.scrollX;
+            man.style.opacity = 1 - value / 100;
+            text.style.opacity = 1 - value / 100;
+            text2.style.opacity = value / 100;
+            //text.style.top = 50 + value * -0.5 + '%';
+            //text.style.right = value * -0.5 + 'px';
+            //city.style.top = value * 0.4 + 'px';
+            //city.style.left = value * 0.02 + 'px';
+            //header.style.top = value * -0.5 + 'px';
+            photographe.style.right = value * 10 + '%';
+            //burger.style.left = value * -0.5 + 'px';
+        })
+
+    </script>
+
+</body>
+
+</html>
