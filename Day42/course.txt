@@ -1,0 +1,23 @@
+Day38 : 
+
+I continued my work on parallax scrolling about Day37
+
+Day39 : 
+
+I have improved my school project dashboard. Progress of the Day34 Dashboard
+
+Day40 : 
+
+I continued to work on the dashboard but brought in objects from the backend with Thymeleaf. 
+
+Day41 : 
+
+Monday was a group day at the school for the school project I have been working on since the beginning of the challenge. 
+I improved the mocks I started in Day24 and mostly spent my day helping my team members so that we could all move forward together. 
+We have a demonstration on 28/02/2022, I hope that all the team can pass this demonstration correctly.
+
+Day42 : 
+
+Today, I codded on my school project about the Mock to add data and make test.
+
+
