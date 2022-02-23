@@ -1,0 +1,7 @@
+Day43 : 
+
+Today I worked on the evolution of sensors in the mock. I worked with the Java dates and their method in order to make comparisons. 
+The idea is to make the temperature evolve according to the time of the day. 
+
+Exemple in date.java 
+
