@@ -1,0 +1,13 @@
+Day57 : 
+
+A lot has been done in 15 days. I kept this habit of coding every day except for 4 days. 
+I have family who came to my house and I went abroad for 3 days.
+
+I made progress on the data mock by fixing some issues with the timestamp evolution of Day43. 
+
+I redesigned the dashboard to make it more ergonomic. 
+
+I improved my backend by modifying the user's consumption retrieval. 
+Our product owner asked us to insert the consumption every X minutes in order to have a history. 
+
+This week I'm at work and I'm still working on parallax scrolling with a zoom on an element during a scroll. 
